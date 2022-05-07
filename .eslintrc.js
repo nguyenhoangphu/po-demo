@@ -6,14 +6,17 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/essential"
+        "plugin:vue/vue3-recommended"
     ],
     "parserOptions": {
-        "ecmaVersion": 13
+        "ecmaVersion": 13,
     },
     "plugins": [
-        "vue"
+		"vue"
     ],
     "rules": {
-    }
+		"no-console": "on",
+		'indent': ['error', 2],
+		'no-multi-spaces': ['error']
+	}
 };
