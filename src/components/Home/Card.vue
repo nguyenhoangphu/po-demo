@@ -1,6 +1,9 @@
 <template>
     <div class="w-full h-screen flex items-center text-center">
-        <div class="shadow-gray-500 max-w-xl border-2 m-auto">
+        <div
+            class="shadow-gray-500 max-w-xl border-2 m-auto"
+            @click="onClickDetail"
+        >
             <div>
                 <div class="relative" :class="style.imgPreview">
                     <el-image
@@ -10,15 +13,13 @@
                     >
                     </el-image>
                     <div
-                        class="absolute left-0 right-0 top-20"
+                        class="absolute w-full h-full top-0 left-0"
                         :class="style.toolsBlock"
-                    >
-                        tool here
-                    </div>
+                    ></div>
                 </div>
             </div>
             <div class="text-sm">
-                <p>Description</p>
+                <p>Sponge Cake</p>
             </div>
         </div>
     </div>
@@ -31,19 +32,26 @@ name: 'Card'
 <script setup>
 import { ref, useCssModule } from 'vue'
 const style = useCssModule()
-console.log(style)
+const onClickDetail = () => {
+    console.log('click detail')
+}
 const url = ref(
-    'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+    'https://realbakers.in/wp-content/uploads/2017/08/KID-CAKE-3.jpg'
 )
 </script>
 <style lang="scss" module>
 .imgPreview {
-    .toolsBlock {
-        @apply hidden;
-    }
     &:hover {
+        :global {
+            img {
+                @apply duration-700;
+                @apply scale-125;
+            }
+        }
         .toolsBlock {
-            @apply block;
+            @apply bg-black;
+            @apply opacity-30;
+            @apply cursor-pointer;
         }
     }
 }
