@@ -5,6 +5,10 @@ import store from './store'
 import './index.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-
-createApp(App).use(ElementPlus).use(store).use(router).mount('#app')
+const app = createApp(App)
+for (const [name, comp] of Object.entries(ElementPlusIconsVue)) {
+    app.component(name, comp)
+}
+app.use(ElementPlus).use(store).use(router).mount('#app')
